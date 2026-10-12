@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -48,9 +47,7 @@ export default function BuyersManagement() {
   const fetchBuyers = async () => {
     try {
       setLoading(true);
-      const response = await axios.get(
-        `${import.meta.env.VITE_API_URL}/buyers`
-      );
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}buyers`);
       setBuyers(response.data);
       console.log(response.data);
       setError("");
@@ -65,7 +62,7 @@ export default function BuyersManagement() {
   const handleDelete = async () => {
     try {
       await axios.delete(
-        `https://mahalaxmisite-backend.onrender.com/buyers/${currentBuyer._id}`
+        `https://mahalaxmisite-backend.onrender.com/buyers/${currentBuyer._id}`,
       );
       fetchBuyers();
       setIsDeleteModalOpen(false);
@@ -110,7 +107,7 @@ export default function BuyersManagement() {
     try {
       await axios.put(
         `https://mahalaxmisite-backend.onrender.com/buyers/${currentBuyer._id}`,
-        editFormData
+        editFormData,
       );
       fetchBuyers();
       setIsEditModalOpen(false);

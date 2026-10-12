@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -50,9 +49,7 @@ export default function SareeManagement() {
   const fetchSarees = async () => {
     try {
       setLoading(true);
-      const response = await axios.get(
-        `${import.meta.env.VITE_API_URL}/sarees`
-      );
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}sarees`);
       setSarees(response.data);
       setError("");
     } catch (error) {
@@ -85,14 +82,11 @@ export default function SareeManagement() {
         // Update existing saree
         await axios.put(
           `https://mahalaxmisite-backend.onrender.com/sarees/${currentSaree._id}`,
-          formData
+          formData,
         );
       } else {
         // Create new saree
-        await axios.post(
-          `${import.meta.env.VITE_API_URL}/sarees`,
-          formData
-        );
+        await axios.post(`${import.meta.env.VITE_API_URL}sarees`, formData);
       }
       fetchSarees();
       setIsModalOpen(false);
@@ -106,7 +100,7 @@ export default function SareeManagement() {
   const handleDelete = async () => {
     try {
       await axios.delete(
-        `https://mahalaxmisite-backend.onrender.com/sarees/${currentSaree._id}`
+        `https://mahalaxmisite-backend.onrender.com/sarees/${currentSaree._id}`,
       );
       fetchSarees();
       setIsDeleteModalOpen(false);

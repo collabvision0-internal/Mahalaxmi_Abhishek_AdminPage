@@ -43,13 +43,13 @@ export default function SareeUploadForm() {
 
     try {
       const response = await axios.post(
-        `${import.meta.env.VITE_API_URL}/sarees`,
+        `${import.meta.env.VITE_API_URL}sarees`,
         {
           name,
           price: Number(price),
           description,
           image,
-        }
+        },
       );
 
       console.log("Saree added successfully:", response.data);
@@ -63,7 +63,7 @@ export default function SareeUploadForm() {
     } catch (error) {
       console.error("Error:", error);
       setError(
-        error.response?.data?.error || "Failed to add saree. Please try again."
+        error.response?.data?.error || "Failed to add saree. Please try again.",
       );
     } finally {
       setLoading(false);

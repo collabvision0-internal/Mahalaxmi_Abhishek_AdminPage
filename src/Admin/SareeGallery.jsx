@@ -25,7 +25,7 @@
 //   const fetchSarees = async () => {
 //     try {
 //       setLoading(true);
-//       const response = await axios.get(`${import.meta.env.VITE_API_URL}/sarees");
+//       const response = await axios.get(`${import.meta.env.VITE_API_URL}sarees");
 //       setSarees(response.data);
 //       setError("");
 //     } catch (error) {
@@ -213,9 +213,7 @@ export default function SareeGallery() {
   const fetchSarees = async () => {
     try {
       setLoading(true);
-      const response = await axios.get(
-        `${import.meta.env.VITE_API_URL}/sarees`
-      );
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}sarees`);
       setSarees(response.data);
       setError("");
     } catch (error) {
@@ -281,14 +279,14 @@ export default function SareeGallery() {
     try {
       const response = await axios.put(
         `https://mahalaxmisite-backend.onrender.com/sarees/${selectedSaree._id}`,
-        editForm
+        editForm,
       );
 
       // Update the saree in the state
       setSarees((prevSarees) =>
         prevSarees.map((s) =>
-          s._id === selectedSaree._id ? { ...response.data } : s
-        )
+          s._id === selectedSaree._id ? { ...response.data } : s,
+        ),
       );
 
       setUpdateSuccess(true);
@@ -300,7 +298,7 @@ export default function SareeGallery() {
       console.error("Error updating saree:", error);
       setUpdateError(
         error.response?.data?.error ||
-          "Failed to update saree. Please try again."
+          "Failed to update saree. Please try again.",
       );
     } finally {
       setUpdateLoading(false);
@@ -315,7 +313,7 @@ export default function SareeGallery() {
 
     try {
       await axios.delete(
-        `https://mahalaxmisite-backend.onrender.com/sarees/${sareeId}`
+        `https://mahalaxmisite-backend.onrender.com/sarees/${sareeId}`,
       );
 
       // Remove the saree from the state
@@ -329,7 +327,7 @@ export default function SareeGallery() {
       console.error("Error deleting saree:", error);
       setDeleteError(
         error.response?.data?.error ||
-          "Failed to delete saree. Please try again."
+          "Failed to delete saree. Please try again.",
       );
     } finally {
       setDeleteLoading(false);
