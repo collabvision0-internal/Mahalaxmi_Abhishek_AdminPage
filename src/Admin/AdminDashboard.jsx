@@ -36,9 +36,9 @@ export default function AdminDashboard() {
     setLoading(true);
     try {
       const [bookingsRes, sareesRes, buyersRes] = await Promise.all([
-        axios.get("https://mahalaxmisite-backend.onrender.com/bookings"),
-        axios.get("https://mahalaxmisite-backend.onrender.com/sarees"),
-        axios.get("https://mahalaxmisite-backend.onrender.com/buyers"),
+        axios.get(`${import.meta.env.VITE_API_URL}/bookings`),
+        axios.get(`${import.meta.env.VITE_API_URL}/sarees`),
+        axios.get(`${import.meta.env.VITE_API_URL}/buyers`),
       ]);
 
       // Calculate total revenue from buyers and their purchased sarees

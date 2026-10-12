@@ -25,7 +25,7 @@
 //   const fetchSarees = async () => {
 //     try {
 //       setLoading(true);
-//       const response = await axios.get("https://mahalaxmisite-backend.onrender.com/sarees");
+//       const response = await axios.get(`${import.meta.env.VITE_API_URL}/sarees");
 //       setSarees(response.data);
 //       setError("");
 //     } catch (error) {
@@ -214,7 +214,7 @@ export default function SareeGallery() {
     try {
       setLoading(true);
       const response = await axios.get(
-        "https://mahalaxmisite-backend.onrender.com/sarees"
+        `${import.meta.env.VITE_API_URL}/sarees`
       );
       setSarees(response.data);
       setError("");

@@ -65,7 +65,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { MoreVertical } from "lucide-react";
 
-const API_URL = "https://mahalaxmisite-backend.onrender.com";
+const API_URL = `${import.meta.env.VITE_API_URL}`;
 
 const TIME_OPTIONS = ["5 AM", "7 AM", "9:30 AM"];
 

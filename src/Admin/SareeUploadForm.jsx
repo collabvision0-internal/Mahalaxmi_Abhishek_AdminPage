@@ -43,7 +43,7 @@ export default function SareeUploadForm() {
 
     try {
       const response = await axios.post(
-        "https://mahalaxmisite-backend.onrender.com/sarees",
+        `${import.meta.env.VITE_API_URL}/sarees`,
         {
           name,
           price: Number(price),

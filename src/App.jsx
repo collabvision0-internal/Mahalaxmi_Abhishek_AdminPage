@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import BookingsManagement from "./Admin/Dashboard/BookingManagementAdmin";
 
-const API_URL = "https://mahalaxmisite-backend.onrender.com";
+const API_URL = `${import.meta.env.VITE_API_URL}`;
 const AUTH_KEY = "mahalaxmi_booking_auth";
 const AUTH_DURATION = 24 * 60 * 60 * 1000; // 24 hours
 

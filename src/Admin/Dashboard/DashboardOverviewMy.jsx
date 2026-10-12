@@ -26,7 +26,7 @@ export default function DashboardOverviewMy({ stats }) {
 
       // Fetch buyers data to get recent purchases
       const buyersRes = await axios.get(
-        "https://mahalaxmisite-backend.onrender.com/buyers"
+        `${import.meta.env.VITE_API_URL}/buyers`
       );
       const buyers = buyersRes.data;
 
@@ -50,7 +50,7 @@ export default function DashboardOverviewMy({ stats }) {
 
       // Get sarees and match with counts
       const sareesRes = await axios.get(
-        "https://mahalaxmisite-backend.onrender.com/sarees"
+        `${import.meta.env.VITE_API_URL}/sarees`
       );
       const sarees = sareesRes.data;
 
