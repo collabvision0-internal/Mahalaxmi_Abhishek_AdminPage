@@ -182,7 +182,7 @@ export default function BookingsManagement() {
 
       setError("");
 
-      const response = await axios.get(`${API_URL}/bookings`, {
+      const response = await axios.get(`${API_URL}bookings`, {
         timeout: 180000,
       });
 
@@ -373,7 +373,7 @@ export default function BookingsManagement() {
 
       setSavingId(currentBooking._id);
 
-      await axios.put(`${API_URL}/bookings/${currentBooking._id}`, payload, {
+      await axios.put(`${API_URL}bookings/${currentBooking._id}`, payload, {
         timeout: 180000,
       });
 
@@ -421,7 +421,7 @@ export default function BookingsManagement() {
 
     try {
       await axios.put(
-        `${API_URL}/bookings/${booking._id}`,
+        `${API_URL}bookings/${booking._id}`,
 
         { isCompleted },
 
@@ -465,7 +465,7 @@ export default function BookingsManagement() {
 
       clearMessages();
 
-      await axios.delete(`${API_URL}/bookings/${currentBooking._id}`, {
+      await axios.delete(`${API_URL}bookings/${currentBooking._id}`, {
         timeout: 180000,
       });
 
@@ -501,7 +501,7 @@ export default function BookingsManagement() {
       cutoff.setHours(0, 0, 0, 0);
 
       await axios.delete(
-        `${API_URL}/bookings/delete-past/${encodeURIComponent(cutoff.toISOString())}`,
+        `${API_URL}bookings/delete-past/${encodeURIComponent(cutoff.toISOString())}`,
 
         { timeout: 180000 },
       );
@@ -529,7 +529,7 @@ export default function BookingsManagement() {
 
       clearMessages();
 
-      await axios.delete(`${API_URL}/bookings`, { timeout: 180000 });
+      await axios.delete(`${API_URL}bookings`, { timeout: 180000 });
 
       setBookings([]);
 
