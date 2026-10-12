@@ -48,7 +48,7 @@ function ProtectedBookingWrapper() {
 
     try {
       const response = await fetch(
-        `${API_URL}/api/verify-booking-password`,
+        `${API_URL}api/verify-booking-password`,
         {
           method: "POST",
           headers: {
